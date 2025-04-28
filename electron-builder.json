@@ -1,0 +1,13 @@
+{
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "**/*"
+  ],
+  "win": {
+    "target": "zip",  // ✅ 注意，目标不是 nsis，而是 zip
+    "sign": false,
+    "signAndEditExecutable": false
+  }
+}

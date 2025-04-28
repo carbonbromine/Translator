@@ -1,0 +1,8 @@
+{
+  "hotkey": "Control+Q",
+  "targetLang": "EN",
+  "deeplApiKey": "3f578a79-e005-4add-b9f2-9ca4275fc689:fx",
+  "autoLaunch": false,
+  "startupMode": "silent",
+  "historyLimit": 100
+}

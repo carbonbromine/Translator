@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepL Translator</title>
+  <style>
+    body { font-family:"Microsoft YaHei",Arial; margin:0; padding:20px; background:#f5f7fa; }
+    h1{font-size:24px;color:#2c3e50;}
+    label{display:block;margin-top:15px;color:#34495e;font-weight:bold;}
+    input,select,button{width:100%;padding:8px;margin-top:5px;font-size:14px;border:1px solid #ccc;border-radius:6px;}
+    input:hover,select:hover,button:hover{border-color:#3498db;}
+    #usageInfo{margin-top:15px;color:#2c3e50;}
+    #historyArea{margin-top:20px;max-height:250px;overflow-y:auto;background:#fff;padding:10px;border:1px solid #ccc;border-radius:6px;}
+    .history-item{padding:8px;margin-bottom:8px;background:#fafafa;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,0.05);}
+    .time{font-size:12px;color:gray;}
+    .original{font-weight:bold;color:#2c3e50;}
+    .translated{margin-top:4px;color:#3498db;}
+    .actions{margin-top:6px;display:flex;gap:5px;}
+    .actions button{flex:1;padding:4px;font-size:12px;cursor:pointer;}
+    .copy-btn{background:#3498db;color:#fff;border:none;border-radius:4px;}
+    .delete-btn{background:#e74c3c;color:#fff;border:none;border-radius:4px;}
+    #clearHistoryBtn{background:#c0392b;color:#fff;margin-top:10px;}
+    #historyLimitInput{width:60px;display:inline-block;}
+    .limit-container{margin-top:10px;}
+    .checkbox-container{margin-top:10px;display:flex;align-items:center;gap:8px;}
+    .checkbox-container label{white-space:nowrap;}
+  </style>
+</head>
+<body>
+  <h1>DeepL Translator</h1>
+
+  <label>当前快捷键 (点击修改):</label>
+  <input id="hotkeyInput" type="text" readonly placeholder="Control+Alt+T">
+
+  <label>目标语言:</label>
+  <select id="langSelect">
+    <option value="EN">英文 EN</option>
+    <option value="ZH">中文 ZH</option>
+    <option value="JA">日文 JA</option>
+    <option value="FR">法文 FR</option>
+    <option value="DE">德文 DE</option>
+    <option value="KO">韩文 KO</option>
+    <option value="ES">西班牙文 ES</option>
+  </select>
+
+  <label>DeepL API Key:</label>
+  <input id="apiKeyInput" type="text" placeholder="输入你的DeepL API Key">
+
+  <div class="checkbox-container">
+    <input type="checkbox" id="autoLaunchCheckbox">
+    <label for="autoLaunchCheckbox">开机自启</label>
+  </div>
+
+  <label>启动方式：</label>
+  <select id="startupModeSelect">
+    <option value="silent">静默启动</option>
+    <option value="normal">正常启动</option>
+  </select>
+
+  <div id="usageInfo">剩余额度查询中...</div>
+
+  <div class="limit-container">
+    <label>历史保存上限:</label>
+    <input id="historyLimitInput" type="number" min="1" max="1000"> 条
+  </div>
+
+  <button id="clearHistoryBtn">删除所有历史</button>
+
+  <h2 style="margin-top:20px;">翻译历史</h2>
+  <div id="historyArea">暂无记录</div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

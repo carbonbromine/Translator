@@ -1,0 +1,1 @@
+[2025-04-28 20:13:08] 删除单条历史的功能依旧不可用 => Deleting a single history is still not available

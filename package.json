@@ -1,0 +1,70 @@
+{
+  "name": "deepl-translator-desktop",
+  "version": "1.0.0",
+  "description": "A DeepL Desktop Translator",
+  "author": "SourceCode",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "clean": "if exist dist rd /s /q dist",
+    "start": "electron .",
+    "dist": "npm run clean && electron-builder --win --x64"
+  },
+  "dependencies": {
+    "clipboardy": "^2.3.0",
+    "dayjs": "^1.11.9",
+    "robotjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "electron": "14.2.9",
+    "electron-builder": "23.6.0"
+  },
+  "build": {
+    "appId": "com.sourcecode.deepltranslator",
+    "productName": "DeepL Translator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "config.json",
+        "to": "config.json"
+      },
+      {
+        "from": "history.txt",
+        "to": "history.txt"
+      },
+      {
+        "from": "icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "asarUnpack": [
+      "**/node_modules/robotjs/**"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico",
+      "sign": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "perMachine": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DeepL Translator",
+      "differentialPackage": false,
+      "useZip": true
+    }
+  }
+}

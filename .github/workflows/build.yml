@@ -25,7 +25,7 @@ jobs:
         run: npm run dist
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2  # 👈 改成v2，不要用v3
         with:
           name: Build Output
           path: dist/
